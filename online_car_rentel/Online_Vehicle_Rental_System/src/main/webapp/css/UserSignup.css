@@ -1,0 +1,109 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+
+    background-image: url(../images/bg9.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Times New Roman",;
+}
+
+h1{
+    font-size: 40px;
+    color: whitesmoke;
+    margin-top: 250px;
+}
+p{
+    font: size 17px;
+    color:white;
+}
+
+
+h3{
+    font-size: 25px;
+    color:white;
+    
+}
+
+.col-md-5{
+    margin-top:50px;
+    box-shadow: -1px 1px 60px 10px black;
+    background: rgba(0,0,0,0.4);
+    border-radius:0px 100px 0px 100px;
+
+}
+.label{
+    font-weight:normal;
+    margin-top: 15px;
+    color:white;
+    font-size:19px;
+}
+.form-control{
+    background: transparent;
+    border-radius: 0px;
+    border-top: 2px solid blue;
+    border-color: black;
+    font-size: 21px;
+    margin-top: 18px;
+    padding: 23px;
+    color: white; 
+
+}
+input[type="checkbox"]{
+    margin-top:15px;
+    width:15px;
+    height:15px;
+}
+small{
+    font-size: 18px;
+    color:white;
+    font-weight: 400px;
+
+}
+input[type="radio"]{
+    margin-top:22px;
+}
+
+option{
+    color:black;
+}
+
+
+
+.btn-info{
+    margin-top:20px;
+    font-size:18px;
+    width: 120px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+.btn-warning{
+    margin-top:20px;
+    font-size:18px;
+    width: 120px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+.form-control::placeholder { 
+    color: white;
+    opacity: 1; 
+}
+
+img{
+    width: 130px;
+    height: 130px;
+    border-radius: 200px;
+    margin-left: 150px;
+    transition: 3s;
+}
+
+img:hover{
+    -webkit-transform: scale(1.8);
+}
+
+

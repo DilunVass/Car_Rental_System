@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/userAccount.css">
+ <link rel= "stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+
+<meta charset="UTF-8">
+<title>User Saved Cards</title>
+</head>
+<body>
+	 <div class="card">
+			  <figure class="card__figure">
+			    <img src="" class="card__figure--logo"></img>
+			  </figure>
+			<div class="card__reader">
+			  <div class="card__reader--risk card__reader--risk-one"></div>
+			  <div class="card__reader--risk card__reader--risk-two"></div>
+			   <div class="card__reader--risk card__reader--risk-three"></div>
+			  <div class="card__reader--risk card__reader--risk-four"></div>
+			</div>
+            
+			<p class="card__number">5032 9334 3764 9846</p>
+			<div class="card__dates">
+			  <span class="card__dates--first">09/16</span>
+			  <span class="card__dates--second">09/19</span>
+			</div>
+			<p class="card__name">GABRIEL FERREIRA<p>
+			<div class="card__flag">
+			  <div class="card__flag--globe"></div>
+			  <div class="card__flag--red"></div>
+			   <div class="card__flag--yellow"></div>
+			</div>
+	</div>
+	
+	<br>
+	<br>
+	<div class="card">
+	ojuojwioj
+	</div>
+		 
+</body>
+</html>

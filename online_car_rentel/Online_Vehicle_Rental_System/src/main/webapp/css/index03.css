@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url(../images/bg8.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family:'Times New Roman';
+
+}
+
+h1{
+    font: size 50px;
+    color:black;
+}
+img{
+    width: 130px;
+    height: 130px;
+    border-radius: 100px;
+    margin-left: 200px;
+    transition: 2s;
+}
+
+img:hover{
+    -webkit-transform: scale(1.8);
+}
+.form-control{
+    background:transparent;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 2px solid green;
+    font-size: 21px;
+    margin-top: 18px;
+    padding: 23px;
+
+}
+
+.btn-info{
+    margin-top: 20px;
+    font-size: 21px;
+    width: 200px;
+    background: transparent;
+
+}
+
+.col-md-6{
+    box-shadow: -1px 1px 60px 10px black;
+    border-radius:0px 100px 0px 100px;
+    margin-top: 100px;
+    height: 500px;
+    background:rgba(0,0,0,0.4);
+}
+
+.form-control::placeholder { 
+    color: white;
+    opacity: 1; 
+}
+

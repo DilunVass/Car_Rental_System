@@ -1,0 +1,135 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+   	background-image: img src="../images/05.jpg";
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logo_header{
+    position: absolute;
+    width: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    left: 90%;
+}
+
+.nev_bar{
+
+    text-align: left;  
+    background-image: url("../images/04.jpg");
+}
+
+.nev_bar ul{
+    display: inline-flex;
+    list-style: none;
+    color: lightcyan;
+}
+
+.nev_bar ul li{
+    width: 120px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.nev_bar ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: wheat;
+    
+}
+
+.nev, .nev_bar ul li a:hover{
+    text-decoration-color: black;
+}
+
+.sub_menu{
+    display: none;
+}
+
+.nev_bar ul li:hover .sub_menu{
+    display: block;
+    position: absolute;
+    background: black;
+    background: solid black;
+    margin-top: 20px;
+    margin-left: -10px;
+}
+.nev_bar ul li:hover .sub_menu a{
+    color: aliceblue;
+    font-size: 12px;
+    margin-top: 5x;
+}
+
+.nev_bar ul li:hover .sub_menu ul{
+    display: block;
+    margin: 5px;
+}
+
+.nev_bar ul li:hover .sub_menu ul li{
+    width: 125px;
+    padding: 5px;
+    border-bottom: 1px dotted black;
+    border-radius: 0;
+    text-align: left;
+}
+
+.nev_bar ul li:hover .sub_menu ul li :last-child{
+    border-bottom: none;
+}
+
+.nev_bar ul li:hover .sub_menu ul li a:hover{
+    color: wheat;
+}
+
+footer{
+    width: 100%;
+    bottom: 0;
+    background-image: url("../images/04.jpg");
+    color: white;
+    padding: 10px 0 20px;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.row{
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col{
+    flex-basis: 25%;
+    padding: 15px;
+}
+
+.logo{
+    width: 75px;
+    margin-bottom: 10px;
+}
+
+.col h3{
+    width: fit-content;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+ul li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+}

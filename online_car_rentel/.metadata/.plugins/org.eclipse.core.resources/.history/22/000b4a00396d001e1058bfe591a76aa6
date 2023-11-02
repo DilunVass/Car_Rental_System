@@ -1,0 +1,45 @@
+package com.Vehicles;
+
+import java.io.IOException;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/insertVehicleSevlet")
+public class insertVehicleSevlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    public insertVehicleSevlet() {
+        super();
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String type = request.getParameter("type");
+        String model = request.getParameter("model");
+        String number = request.getParameter("number");
+        String color = request.getParameter("color");
+        String enNumber = request.getParameter("enNumber");
+        String Features = request.getParameter("Features");
+        String year = request.getParameter("year");
+        String Schedule = request.getParameter("Schedule");
+
+        boolean isTrue;
+
+        isTrue = VehicleDBUtil.vehicleInsert(type, model, color, enNumber, Features, number, year, Schedule);
+
+        if (isTrue == true) {
+            RequestDispatcher dis = request.getRequestDispatcher("VehicleDetails.jsp");
+            dis.forward(request, response);
+        }
+
+        else {
+
+            RequestDispatcher dis = request.getRequestDispatcher("Unsuccess.jsp");
+            dis.forward(request, response);
+        }
+
+    }
+
+}

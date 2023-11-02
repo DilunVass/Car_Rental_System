@@ -1,0 +1,32 @@
+package com.ReqVehicle;
+
+import javax.swing.plaf.nimbus.State;
+
+import com.mysql.jdbc.Connection;
+
+public class reqVehicleDBUtil {
+    private static Connection con = null;
+    private static Statement stmt = null;
+    private static ResultSet rs = null;
+
+    public static boolean insertReqVehicle( String vehicleId, String vehicleType, String NoOfDays, String ScheduleDate) {
+        boolean isSuccess = false;
+
+        try {
+            con = DBConnect.getConnection();
+            stmt = con.createStatement();
+            String sql = "insert into reqvehicle values (0 ,'"+vehicleId+"','"+vehicleType+"','"+NoOfDays+"','"+ScheduleDate+"')";
+            int rs = stmt.executeUpdate(sql);
+
+            if(rs > 0) {
+                isSuccess = true;
+            } else {
+                isSuccess = false;
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        return isSuccess;
+    }
+}

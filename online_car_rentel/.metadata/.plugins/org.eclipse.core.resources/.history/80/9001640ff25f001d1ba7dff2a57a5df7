@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<%@page import="java.sql.*"%>
+        <%@ page import="com.Game.*, java.util.*, java.io.*" %>
+        <%@ page import="com.UserComment.*, java.util.*, java.io.*" %>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+                    try{
+                    	Class.forName("com.mysql.jdbc.Driver");
+						String url="jdbc:mysql://localhost/gaming_webapp";
+						String username="root";
+						String password="bhtd1996213";
+						Connection conn=DriverManager.getConnection(url,username,password);
+						Statement stmt=conn.createStatement();
+						
+						String sql = "select* from gamecomment where gameName = '1'";
+						ResultSet rs=stmt.executeQuery(sql);
+                    	
+						while(rs.next()){	
+							
+					%>
+						   <form action = "#" method ="post">
+          Email: <input type="email" name="email" value="<%=rs.getString(2)%>"><br></br>
+          DOB: <input type="date" name="dob" value="<%=rs.getString(2)%>"><br></br>
+          User id: <input type="text" name="userid" value="<%=rs.getString(2)%>" readonly><br></br>
+          User id: <input type="text" name="userid" value="<%=rs.getString(2)%>" readonly><br></br>
+          
+          <input type ="submit" name="submit" value ="Delete">
+          
+    </form>
+         	
+                    <%
+					
+						}
+						
+					%>
+					<%
+					   	rs.close();
+				    	stmt.close();
+				    	conn.close();
+                    	
+                    }
+                    
+                    catch(Exception e){
+                    	e.printStackTrace();
+                    }
+                    
+                    %>
+     <h3>Customer Account Delete</h3>
+     
+
+</body>
+</html>

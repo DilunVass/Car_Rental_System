@@ -1,0 +1,461 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+        <%@page import="java.sql.*"%>
+        <%@ page import="com.Game.*, java.util.*, java.io.*" %>
+        <%@ page import="com.UserComment.*, java.util.*, java.io.*" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://css.gg/home.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gamePage.css">
+
+    <title>Game</title>
+</head>
+
+	<%String i = (String)(session.getAttribute("userId")); %>
+
+
+
+<div class="nev_bar">
+            
+    <ul>
+        <a href="#"><img src="images/03.jpg" class="logo_header"></a>
+        <li><a href="#"><i class="gg-home"></i></a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="">SignUp</a></li>
+    </ul> 
+</div> 
+    <div class="container-fluid ar-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 pr-5">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <%     
+						List<Game> list;
+						try{
+							Class.forName("com.mysql.jdbc.Driver");
+							String url="jdbc:mysql://localhost/gaming_webapp";
+							String username="root";
+							String password="bhtd1996213";
+							Connection conn=DriverManager.getConnection(url,username,password);
+							Statement stmt=conn.createStatement();
+							
+							String sql = "select* from games where gameId = '1' ";
+							ResultSet rs=stmt.executeQuery(sql);
+							if(rs.next()){
+								
+							%>
+								<div class="card ar-img-over">
+			                        <img class="card-img" src="<%=rs.getString(4) %>" alt="">
+			                        <div class="card-img-overlay">
+			                            <a href="#" class="d-flex align-items-center justify-content-center"><img
+			                                    src="assets/images/full-screen.png" alt=""></a>
+			                        </div>
+			                    </div>
+			                    <div class="row date-time mt-3">
+			
+			                        <div class="col text-white">
+			                            <a href="#"> <i class="fas fa-retweet"></i> Share</a>
+			                        </div>
+			                        <div class="col text-right"><a href="#"> June 3, 2019 &nbsp; 6 <i
+			                                    class="far fa-comments"></i></a></div>
+			                    </div>
+			
+			                    <p>
+			                        Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
+			                        dolore magna aliqua. Idque Caesaris facere voluntate liceret: sese habere. Magna pars studiorum,
+			                        prodita quaerimus. Magna pars studiorum, prodita quaerimus. Fabio vel iudice vincam, sunt in
+			                        culpa qui officia. Vivamus sagittis lacus vel augue laoreet rutrum faucibus.blandit praesent
+			                        luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
+			                        nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+			                        Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.
+			                        Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est
+			                        etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam
+			                        littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per
+			                        seacula quarta decima et quinta decima. </p>
+			
+			                    <p> Eodem modo typi, qui nunc nobis videntur parum Nam liber tempor cum soluta nobis eleifend option
+			                        congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent
+			                        claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes
+			                        demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus
+			                        dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica,
+			                        quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta
+			                        decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
+			                        in futurum.
+			                    </p>
+							<%
+								
+							}
+							
+						}catch(Exception e){
+							e.printStackTrace();
+						}
+					%>
+
+                    
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <%
+                    try{
+                    	Class.forName("com.mysql.jdbc.Driver");
+						String url="jdbc:mysql://localhost/gaming_webapp";
+						String username="root";
+						String password="bhtd1996213";
+						Connection conn=DriverManager.getConnection(url,username,password);
+						Statement stmt=conn.createStatement();
+						
+						String sql = "select* from gamecomment where gameName = '1'";
+						ResultSet rs=stmt.executeQuery(sql);
+                    	
+						while(rs.next()){	
+							
+					%>
+						   <div class="media-body">
+                                <div class="row">
+                                    <div class="col text-left">
+                                        <h4><%=rs.getString(4) %></h4>
+                                    </div>
+                                    <div class="col text-right">
+                                        <p class="my-0"><span><%=rs.getString(5) %></span> <a href="deleteComment.jsp" class="ml-3">Delete</a> </span> <a href="editComment.jsp" class="ml-3">Edit</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <p><%=rs.getString(2) %></p>
+                                     
+                           </div>
+         	
+                    <%
+					
+						}
+						
+					%>
+					<%
+					   	rs.close();
+				    	stmt.close();
+				    	conn.close();
+                    	
+                    }
+                    
+                    catch(Exception e){
+                    	e.printStackTrace();
+                    }
+                    
+                    %>
+
+                    <div class="comment-section mt-5">
+                        <h3>3 Comments</h3>
+                        <hr class="ml-0" />
+                        <div class="media pt-5">
+                            <div class="card mr-4">
+                                <img src="assets/images/comment-user1.png" alt="" class="card-img">
+                                <div class="card-img-overlay">
+
+                                </div>
+                            </div>
+
+                         
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="comment-form my-5 pt-5">
+                        <h3>Add Comments</h3>
+                        <hr class="ml-0" />
+                        <hr class="s-br" />
+                        <form action="addcom" method = "post">
+	                        <table class="table table-borderless mt-4">
+	                            <tr>
+	                            	
+	                                <td><input type="text" class="form-control" placeholder="Name"  name="name" required/></td>
+	                                <td><input type="email" class="form-control" placeholder="Email" name="email" required/> </td>
+	                                <td><input type="date" class="form-control" placeholder="Date" name="date" required/> </td>
+	                            </tr>
+	                            <tr>
+	                                <td colspan="3"><textarea class="form-control" placeholder="Your comment" name="comment" required></textarea>
+	                                </td>
+	                            </tr>
+	                            <tr>
+	                            
+	                            	<td><input type="checkbox" value = "1" name = "id" required>   Accept teams & conditions
+	                                <td colspan="3"><button type="submit" class="btn text-uppercase ml-auto d-block">Add Comment</button>
+	                                </td>
+	                            </tr>
+	                        </table>
+                        </form>
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-3 pl-0">
+                    <br><br>
+                    <div class="sidebar">
+                        <h3 class="text-center text-white">Top Games</h3>
+                        <hr class="bg-white" />
+
+                        <div class="owl-carousel owl-carousel4 owl-theme">
+                            <div>
+                                <div class="card pb-5"> <img class="card-img link-img rounded"
+                                        src="assets/images/carlla-willstons.jpg" alt="">
+                                </div>
+                                <h3 class="text-center mt-3 mb-0">Carlla Willstons</h3>
+                                <p class="text-center mt-1 third-clr">Reporter</p>
+                            </div>
+
+                            <div>
+                                <div class="card pb-5"> <img class="card-img link-img rounded"
+                                        src="assets/images/carlla-willstons.jpg" alt="">
+                                </div>
+                                <h3 class="text-center mt-3 mb-0">Carlla Willstons</h3>
+                                <p class="text-center mt-1 third-clr">Reporter</p>
+                            </div>
+
+                            <div>
+                                <div class="card pb-5"> <img class="card-img link-img rounded"
+                                        src="assets/images/carlla-willstons.jpg" alt="">
+                                </div>
+                                <h3 class="text-center mt-3 mb-0">Carlla Willstons</h3>
+                                <p class="text-center mt-1 third-clr">Reporter</p>
+                            </div>
+
+                            <div>
+                                <div class="card pb-5"> <img class="card-img link-img rounded"
+                                        src="assets/images/carlla-willstons.jpg" alt="">
+                                </div>
+                                <h3 class="text-center mt-3 mb-0">Carlla Willstons</h3>
+                                <p class="text-center mt-1 third-clr">Reporter</p>
+                            </div>
+                        </div>
+
+
+                        <div class="owl-carousel bg-gray owl-carousel5 owl-theme my-5 pb-5">
+                            <div>
+                                <div class="card bg-gray">
+                                    <h3 class="text-center mt-3 mb-0">Twitter Posts</h3>
+                                    <hr class="mx-auto" />
+                                    <p class="text-center mt-1">To take a trivial example, which of us ever undertakes
+                                        laborious physical exercise, some advantage from it? </p>
+                                    <p class="text-center my-1"><span>14 minutes ago</span></p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <div class="card bg-gray">
+                                    <h3 class="text-center mt-3 mb-0">Twitter Posts</h3>
+                                    <hr class="mx-auto" />
+                                    <p class="text-center mt-1">To take a trivial example, which of us ever undertakes
+                                        laborious physical exercise, some advantage from it? </p>
+                                    <p class="text-center my-1"><span>14 minutes ago</span></p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <div class="card bg-gray">
+                                    <h3 class="text-center mt-3 mb-0">Twitter Posts</h3>
+                                    <hr class="mx-auto" />
+                                    <p class="text-center mt-1">To take a trivial example, which of us ever undertakes
+                                        laborious physical exercise, some advantage from it? </p>
+                                    <p class="text-center my-1"><span>14 minutes ago</span></p>
+                                </div>
+
+                            </div>
+                            <div>
+                                <div class="card bg-gray">
+                                    <h3 class="text-center mt-3 mb-0">Twitter Posts</h3>
+                                    <hr class="mx-auto" />
+                                    <p class="text-center mt-1">To take a trivial example, which of us ever undertakes
+                                        laborious physical exercise, some advantage from it? </p>
+                                    <p class="text-center my-1"><span>14 minutes ago</span></p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <h3 class="text-center">Follow Us</h3>
+                        <hr class="mx-auto" />
+                        <nav class="nav nav-fill mx-auto mb-5">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://facebook.com/fh5co" target="_blank"><i
+                                        class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://twitter.com/fh5co" target="_blank"><i
+                                        class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-rss"></i></a>
+                            </li>
+                        </nav>
+
+                        <h3 class="text-center">Instagram</h3>
+                        <hr class="mx-auto" />
+                        <div class="row insta-links mt-2">
+                            <div class="col-md-4 col-sm-6 col-6">
+                                <div class="card">
+                                    <img class="card-img w-100" src="assets/images/insta1.png" alt="">
+                                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                        <a href="#"><img src="assets/images/right-icon.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6">
+                                <div class="card">
+                                    <img class="card-img w-100" src="assets/images/insta2.png" alt="">
+                                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                        <a href="#"><img src="assets/images/right-icon.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6">
+                                <div class="card">
+                                    <img class="card-img w-100" src="assets/images/insta3.png" alt="">
+                                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                        <a href="#"><img src="assets/images/right-icon.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6">
+                                <div class="card">
+                                    <img class="card-img w-100" src="assets/images/insta4.png" alt="">
+                                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                        <a href="#"><img src="assets/images/right-icon.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6">
+                                <div class="card">
+                                    <img class="card-img w-100" src="assets/images/insta5.png" alt="">
+                                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                        <a href="#"><img src="assets/images/right-icon.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-6">
+                                <div class="card">
+                                    <img class="card-img w-100" src="assets/images/insta6.png" alt="">
+                                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                        <a href="#"><img src="assets/images/right-icon.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-center mt-5">Trending Posts</h3>
+                        <hr class="mx-auto" />
+                        <div class="tranding-posts mt-4">
+                            <div class="media my-3">
+                                <div class="d-flex align-items-center justify-content-center"><a href="#"><img
+                                            src="assets/images/t-post1.png" alt=""></a></div>
+                                <div
+                                    class="media-body text-center d-flex align-items-center justify-content-center flex-column px-3">
+                                    <a href="#">The latest trends
+                                        in Travel</a>
+                                    <p class="mt-1">08 Jan 2019</p>
+                                </div>
+                            </div>
+                            <div class="media my-3">
+                                <div class="d-flex align-items-center justify-content-center"><a href="#"><img
+                                            src="assets/images/t-post2.png" alt=""></a></div>
+                                <div
+                                    class="media-body text-center d-flex align-items-center justify-content-center flex-column px-3">
+                                    <a href="#">Effective fine art
+                                        design</a>
+                                    <p class="mt-1">08 Jan 2019</p>
+                                </div>
+                            </div>
+                            <div class="media my-3">
+                                <div class="d-flex align-items-center justify-content-center"><a href="#"><img
+                                            src="assets/images/t-post3.png" alt=""></a></div>
+                                <div
+                                    class="media-body text-center d-flex align-items-center justify-content-center flex-column px-3">
+                                    <a href="#">How to design
+                                        your first PSD?</a>
+                                    <p class="mt-1">08 Jan 2019</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid jumbotron-fluid stay mt-5 pt-5 pb-5">
+        <h2 class="text-center">Stay Updated</h2>
+        <p class="text-center mt-2">Sign up for our newsletter to receive the latest news and event postings.</p>
+        <div class="input-group mt-4 mx-auto" style="max-width: 640px">
+            <input type="email" class="form-control" placeholder="YOUR EMAIL ADDRESS">
+            <div class="">
+                <button class="btn btn-success ml-2" type="submit">SIGN UP</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid pt-5">
+        <div class="container">
+            <h2 class="logo text-center">Shahala</h2>
+            <nav class="nav nav-fill mx-auto mt-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://facebook.com/fh5co" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://facebook.com/fh5co" target="_blank"><i
+                            class="fab fa-twitter"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fab fa-google-plus-g"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-rss"></i></a>
+                </li>
+            </nav>
+        </div>
+        <div class="copy-right mt-4">
+            <p class="text-center">&copy; 2019 <a href="#" class="text-white">Shahala</a>. All Rights Reserved. Design
+                by <a href="https://freehtml5.co/shahala" target="_blank" class="text-white">FreeHTML5.co</a>.</p>
+        </div>
+    </footer>
+
+    <script src="../JS/popper.min.js"></script>
+    <script src="../JS/jquery-1.12.0.min.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+    <script src="../JS/owl.carousel.min.js"></script>
+    <script src="../JS/article.js"></script>
+
+    
+
+</body>
+
+</html>

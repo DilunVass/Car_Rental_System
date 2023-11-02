@@ -1,0 +1,36 @@
+package com.PaymentCard;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/cardDeleteSevlet")
+public class cardDeleteSevlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    public cardDeleteSevlet() {
+        super();
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String id = request.getParameter("id");
+
+        boolean isTrue;
+
+        isTrue = CardDBUtil.deleteCard(id);
+
+        if (isTrue == true) {
+            RequestDispatcher dis = request.getRequestDispatcher("Home.jsp");
+            dis.forward(request, response);
+        }
+
+        else {
+
+            RequestDispatcher dis = request.getRequestDispatcher("Unsuccess.jsp");
+            dis.forward(request, response);
+        }
+
+    }
+
+}

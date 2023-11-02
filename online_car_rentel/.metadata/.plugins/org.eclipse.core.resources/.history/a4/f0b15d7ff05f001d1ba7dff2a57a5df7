@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	 <%
+       
+       String id = request.getParameter("id");
+	   String Email = request.getParameter("email");
+	   String Name = request.getParameter("name");
+	   String Date = request.getParameter("date");
+	   String Comment = request.getParameter("comm");
+     %>
+     
+     <h3>Customer Account Delete</h3>
+     
+<form action = "delete" method ="post">
+     
+          User id: <input type="text" name="userid" value="<%=id%>" readonly><br></br>
+          Email: <input type="email" name="email" value="<%=Email%>"><br></br>
+          DOB: <input type="date" name="dob" value="<%=Date%>"><br></br>
+          User id: <input type="text" name="userid" value="<%=Comment%>" readonly><br></br>
+          User id: <input type="text" name="userid" value="<%=Name%>" readonly><br></br>
+          
+          <input type ="submit" name="submit" value ="Delete">
+          
+    </form>
+</body>
+</html>

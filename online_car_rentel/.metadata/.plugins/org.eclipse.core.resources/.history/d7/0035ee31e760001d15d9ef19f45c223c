@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<%@page import="java.sql.*"%>
+        <%@ page import="com.Game.*, java.util.*, java.io.*" %>
+        <%@ page import="com.UserComment.*, java.util.*, java.io.*" %>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+                    try{
+                    	Class.forName("com.mysql.jdbc.Driver");
+						String url="jdbc:mysql://localhost/gaming_webapp";
+						String username="root";
+						String password="bhtd1996213";
+						Connection conn=DriverManager.getConnection(url,username,password);
+						Statement stmt=conn.createStatement();
+						
+						String sql = "select* from gamecomment where gameName = '1'";
+						ResultSet rs=stmt.executeQuery(sql);
+                    	
+						while(rs.next()){	
+							
+					%>
+						<form>
+						  <fieldset disabled>
+						    <legend>Disabled fieldset example</legend>
+						    <div class="mb-3">
+						      <label for="disabledTextInput" class="form-label">Disabled input</label>
+						      <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+						    </div>
+						    <div class="mb-3">
+						      <label for="disabledSelect" class="form-label">Disabled select menu</label>
+						      <select id="disabledSelect" class="form-select">
+						        <option>Disabled select</option>
+						      </select>
+						    </div>
+						    <div class="mb-3">
+						      <div class="form-check">
+						        <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+						        <label class="form-check-label" for="disabledFieldsetCheck">
+						          Can't check this
+						        </label>
+						      </div>
+						    </div>
+						    <button type="submit" class="btn btn-primary">Submit</button>
+						  </fieldset>
+						</form>		
+						
+									
+						   <form action = "commdelete" method ="post">
+						   		Comment No : <input type="text" name="id" value="<%=rs.getString(1)%>"><br></br>
+						   		Name : <input type="text" name="username" value="<%=rs.getString(4)%>"><br></br>
+          						Comment : <input type="text" name="comm" value="<%=rs.getString(2)%>"><br></br>
+						        <input type ="submit" name="submit" value ="Delete">
+						          
+						    </form>
+						         	
+                    <%
+					
+						}
+						
+					%>
+					<%
+					   	rs.close();
+				    	stmt.close();
+				    	conn.close();
+                    	
+                    }
+                    
+                    catch(Exception e){
+                    	e.printStackTrace();
+                    }
+                    
+                    %>
+     
+
+</body>
+</html>
